@@ -4,10 +4,18 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+// const h1 = React.createElement('h1', { className: 'test' }, 'Hello World');
+// const div = React.createElement('div', { style: { width: '200px', height: '300px', backgroundColor: 'black' }, },
+//   h1,
+// )
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
+  // <React.StrictMode>
+  //   {div}
+  // </React.StrictMode>
   <React.StrictMode>
     <App />
   </React.StrictMode>
