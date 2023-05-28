@@ -26,7 +26,7 @@ export const ProductCard = ({ productName, limit }: TProps) => {
     <div className='button_section'>
         <button onClick={deleteCount} disabled={count === 0}>delete</button>
         <span>{count}</span>
-        <button onClick={addCount} disabled={count >= 10}>add</button>
+        <button onClick={addCount} disabled={count >= limit}>add</button>
     </div>
   </div>
 };
