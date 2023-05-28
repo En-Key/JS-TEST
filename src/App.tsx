@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import { ProductCard } from './ProductCard';
+import { CustomInput } from './CustomInput';
 
 const productArray = [{
   id: 1,
@@ -31,6 +32,7 @@ function App() {
 
   return (
     <div className="App">
+      <CustomInput/>
       <button onClick={deleteLimit} disabled={limit === 0}>delete</button>
         <span>{limit}</span>
         <button onClick={addLimit}>add</button>
