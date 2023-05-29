@@ -6,5 +6,6 @@ export const Header = () => {
   return <header className={styles.header}>
     <Link to="/">Main Page</Link>
     <Link to="/posts">Posts Page</Link>
+    <Link to="/posts/212" state={'test state'}>One post page</Link>
   </header>
 };
