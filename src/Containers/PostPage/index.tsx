@@ -5,10 +5,7 @@ import { PostCard } from '../../Components/Posts/PostCard';
 import styles from './PostPage.module.scss';
 
 export const PostPage = () => {
-  return <div className={styles.postPageWrapper}>
-    <Header />
-    <div className={styles.postList}>
-      {/* <span>PostPage</span> */}
+  return <div className={styles.postList}>
     <PostCard />
     <PostCard />
     <PostCard />
@@ -16,7 +13,5 @@ export const PostPage = () => {
     <PostCard />
     <PostCard />
     <PostCard />
-    </div>
-    <Footer />
-    </div>
+  </div>
 };
