@@ -6,8 +6,8 @@ import styles from './App.module.scss'
 function App() {
   return (
     <div className={styles.wrapper}>
-      {/* <MainPage /> */}
-      <PostPage />
+      <MainPage />
+      {/* <PostPage /> */}
     </div>
   );
 }
