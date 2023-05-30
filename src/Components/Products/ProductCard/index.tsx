@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './index.scss';
 
 interface TProps {
   productName: string;
   limit: number;
 }
-
-export const ProductCard = ({ productName, limit }: TProps) => {
+const Product = ({ productName, limit }: TProps) => {
   const [count, setCount] = useState(0);
 
   const addCount = () => {
@@ -19,7 +18,11 @@ export const ProductCard = ({ productName, limit }: TProps) => {
     setCount((prevValue) => prevValue - 1);
   };
 
-  console.log('render');
+  console.log('PRODUCT CARD RENDER');
+
+  // useEffect(() => {
+  //   console.log('COMPONENT DID MOUNT product');
+  // }, []);
 
   return <div className='card_wrapper'>
     <span>{ productName }</span>
@@ -30,3 +33,5 @@ export const ProductCard = ({ productName, limit }: TProps) => {
     </div>
   </div>
 };
+
+export const ProductCard = React.memo(Product);

@@ -7,5 +7,6 @@ export const Header = () => {
     <Link to="/">Main Page</Link>
     <Link to="/posts">Posts Page</Link>
     <Link to="/posts/212" state={'test state'}>One post page</Link>
+<Link to="/products">Products Page</Link>
   </header>
 };
