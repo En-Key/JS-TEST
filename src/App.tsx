@@ -6,6 +6,8 @@ import { Route, Routes } from 'react-router-dom';
 import { Page } from './Containers/Page';
 import { Layout } from './Components/Commons/Layouts';
 import { ProductsPage } from './Containers/ProductsPage';
+import { routes } from './utils/constants/routes';
+import { AuthPage } from './Containers/AuthPage';
 
 function App() {
   // console.log('APP RENDER');
@@ -18,9 +20,10 @@ function App() {
     <div className={styles.wrapper}>
       <Layout>
       <Routes>
-        <Route path="/" element={<MainPage />}/>
-        <Route path="/products" element={<ProductsPage />}/>
-        <Route path="/posts">
+        <Route path={routes.MAIN} element={<MainPage />}/>
+        <Route path={routes.PRODUCTS} element={<ProductsPage />}/>
+        <Route path={routes.AUTH} element={<AuthPage />}/>
+        <Route path={routes.POSTS}>
           <Route element={<PostPage />} index />
           <Route path=":id" element={<Page />} />
           </Route>
