@@ -17,6 +17,6 @@ export const CustomInput = ({ value, fieldLabel, fieldName, type, handleChangeFi
 
   return <div style={{ display: 'grid' }}>
     <span>{fieldLabel}</span>
-        <input value={value} type={type} onChange={handleChangeFieldForm(fieldName)}/>
+        <input value={value} type={type} onChange={handleChangeFieldForm(fieldName)} />
     </div>
 };
