@@ -1,13 +1,22 @@
-import React, { useState } from 'react';
-export const CustomInput = () => {
-  const [inputValues, setInputValues] = useState('');
+import React from 'react';
 
-  const inputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValues(event.target.value);
-  };
+interface IProps {
+  value: string;
+  fieldLabel: string;
+  fieldName: string;
+  type?: React.HTMLInputTypeAttribute;
+  handleChangeFieldForm: (fieldName: string) => (e: React.ChangeEvent<HTMLInputElement>) => void;
+};
+
+export const CustomInput = ({ value, fieldLabel, fieldName, type, handleChangeFieldForm }: IProps) => {
+  // const [inputValues, setInputValues] = useState('');
+
+  // const inputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  //   setInputValues(event.target.value);
+  // };
 
   return <div style={{ display: 'grid' }}>
-    <span>{inputValues}</span>
-        <input id="input" value={inputValues} onChange={inputChange}/>
+    <span>{fieldLabel}</span>
+        <input value={value} type={type} onChange={handleChangeFieldForm(fieldName)}/>
     </div>
 };
