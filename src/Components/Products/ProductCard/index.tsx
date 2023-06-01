@@ -31,6 +31,9 @@ const Product = ({ productName, limit }: TProps) => {
         <span>{count}</span>
         <button onClick={addCount} disabled={count >= limit}>add</button>
     </div>
+    <div>
+      <button>Добавить в корзину</button>
+    </div>
   </div>
 };
 
