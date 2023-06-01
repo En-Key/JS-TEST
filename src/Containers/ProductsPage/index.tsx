@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { ProductCard } from '../../Components/Products/ProductCard';
 import styles from './ProductsPage.module.scss';
+import { useSelector } from 'react-redux';
+import { getProducts } from '../../store/products/selectors';
 // import { useSelector } from 'react-redux';
 // import { getProducts } from '../../store/products/selectors';
 // import { useBreakpoint } from '../../utils/hooks/useBreakpoint';
@@ -15,6 +17,8 @@ import styles from './ProductsPage.module.scss';
 
 export const ProductsPage = () => {
   const [count, setCount] = useState(0);
+
+  const products = useSelector(getProducts);
 
   //   console.log('PRODUCTS PAGE RENDER');
 
@@ -43,6 +47,15 @@ export const ProductsPage = () => {
     <button onClick={handleButtonClick}>{count}</button>
     <ProductCard productName={`Apple ${count}`} limit={10} />
     <ProductCard productName={`Orange ${count}`} limit={10} />
+    <div>
+      <span>Корзина</span>
+      {products.map((product, index) => (
+      <div key={index}>
+        <span>{`Название товара - ${product.name}`}</span>
+        <span>{`Количество товара - ${product.count}`}</span>
+      </div>
+      ))}
+    </div>
   </div>
 };
 //   // const [count, setCount] = useState(0);
