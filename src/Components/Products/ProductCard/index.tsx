@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import './index.scss';
+import { useDispatch } from 'react-redux';
+import { addProduct } from '../../../store/products';
 
 interface TProps {
   productName: string;
   limit: number;
 }
-const Product = ({ productName, limit }: TProps) => {
+const Product = ({ productName }: TProps) => {
   const [count, setCount] = useState(0);
+  const dispatch = useDispatch();
 
   const addCount = () => {
     // setCount(count + 1);
@@ -18,7 +21,10 @@ const Product = ({ productName, limit }: TProps) => {
     setCount((prevValue) => prevValue - 1);
   };
 
-  console.log('PRODUCT CARD RENDER');
+  const addProductHandler = () => {
+    dispatch(addProduct({ name: productName, count }));
+  };
+  // console.log('PRODUCT CARD RENDER');
 
   // useEffect(() => {
   //   console.log('COMPONENT DID MOUNT product');
@@ -29,10 +35,10 @@ const Product = ({ productName, limit }: TProps) => {
     <div className='button_section'>
         <button onClick={deleteCount} disabled={count === 0}>delete</button>
         <span>{count}</span>
-        <button onClick={addCount} disabled={count >= limit}>add</button>
+        <button onClick={addCount} >add</button>
     </div>
     <div>
-      <button>Добавить в корзину</button>
+      <button onClick={addProductHandler}>Добавить в корзину</button>
     </div>
   </div>
 };
