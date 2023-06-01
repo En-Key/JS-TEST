@@ -3,12 +3,18 @@ import React from 'react';
 import styles from './Header.module.scss';
 import { Link } from 'react-router-dom';
 import { routes } from '../../../utils/constants/routes';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getUserEmail, getUserToken } from '../../../store/userData/selectors';
+import { resetUserData } from '../../../store/userData';
 
 export const Header = () => {
+  const dispatch = useDispatch();
   const email = useSelector(getUserEmail);
   const token = useSelector(getUserToken);
+
+  const logOutHandler = () => {
+    dispatch(resetUserData());
+  };
 
   return <header className={styles.header}>
     <Link to={routes.MAIN}>Main Page</Link>
@@ -17,7 +23,7 @@ export const Header = () => {
     <Link to={routes.PRODUCTS}>Products Page</Link>
     {email && <span>{email}</span>}
     {
-      token ? <button>LogOut</button> : <Link to={routes.AUTH}>Auth page</Link>
+      token ? <button onClick={logOutHandler}>LogOut</button> : <Link to={routes.AUTH}>Auth page</Link>
     }
 
   </header>
